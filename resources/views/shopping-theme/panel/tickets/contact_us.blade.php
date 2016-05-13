@@ -4,11 +4,14 @@
     <div class="row">
 
         {!! Form::open(array('route' => 'home.postCreate'))!!}
-        {!! Form::text('name', 'نام', null, ['autocomplete' => 'false']) !!}
-        {!! Form::email('email', 'ایمیل') !!}
-        {!! Form::text('phone', 'شماره تماس', null, ['maxlength' => 11, 'class' => 'ltr', 'autocomplete' => 'false']) !!}
-        {!! Form::text('title', 'عنوان', null, ['autocomplete' => 'false']) !!}
-        {!! Form::textarea('content', 'محتوا') !!}
+        {!! Form::label('email', 'ایمیل') !!}
+        {!! Form::email('email') !!}
+        {!! Form::label('mobile', 'شماره تماس') !!}
+        {!! Form::text('mobile', null, null, ['maxlength' => 11, 'class' => 'ltr', 'autocomplete' => 'false']) !!}
+        {!! Form::label('title', 'عنوان') !!}
+        {!! Form::text('title', null, null, ['autocomplete' => 'false']) !!}
+        {!! Form::label('content', 'محتوا') !!}
+        {!! Form::textarea('content') !!}
         {!! Form::submit('ارسال تیکت', ['class'=>'button radius small bg-blue']) !!}
         {!! Form::close() !!}
     </div>

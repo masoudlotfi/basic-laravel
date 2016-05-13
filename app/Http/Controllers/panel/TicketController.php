@@ -1,20 +1,11 @@
 <?php namespace App\Http\Controllers\Panel;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
-use App\Http\Requests\panel\Ticket\CreateGuestTicketReplyRequest;
-use App\Http\Requests\panel\Ticket\CreateGuestTicketRequest;
-use App\Http\Requests\panel\Ticket\CreateTicketReplyRequest;
-use App\Http\Requests\panel\Ticket\CreateTicketRequest;
-use App\Models\Ticket;
-use App\Models\TicketDepartment;
-use App\Models\TicketReply;
-use App\Models\Transaction;
 use Flash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Queue;
+use Illuminate\Support\Facades\Request;
 use Redirect;
-use Request;
 
 class TicketController extends Controller
 {
@@ -32,18 +23,10 @@ class TicketController extends Controller
      * @param CreateGuestTicketRequest $request
      * @return mixed
      */
-    public function postGuestCreate(CreateGuestTicketRequest $request)
+    public function postGuestCreate(Request $request)
     {
-        $input = $request->only([
-            'name',
-            'email',
-            'phone',
-            'title',
-            'g-recaptcha-response',
-            'content',
-            'ticket_department_id',
-            'priority',
-        ]);
+        $input = $request->all();
+        dd($input);
 
         $input['priority'] = intval($input['priority']);
         $input['ticket_department_id'] = intval($input['ticket_department_id']);
