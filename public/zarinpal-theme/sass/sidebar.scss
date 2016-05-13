@@ -1,0 +1,533 @@
+/* Sidebar */
+@import 'variables';//variables
+
+body {
+    font-family: $font-text!important;
+    background: $sidebar-bg-color;
+    padding: 0;
+    font-size: 13px!important;
+    color: #888!important;
+}
+
+body.login-bg {
+    // background-image: url('../img/bg.jpg');
+    background-color: rgba(0, 0, 0, 0.03);
+    background-size: cover;    
+    margin-top: 2rem;
+}
+
+.profile {
+    background-color: $top-bar-color;
+    height: 98px;
+    width: 260px;
+    position: relative;
+    top: -12px;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+    z-index: 99;
+    img {
+        width: 65px;
+        height: 65px;
+        //opacity: 0.9;
+        position: relative;
+        padding: 0px;
+    }
+    h3 {
+        //opacity: 0.9;
+        position: relative;
+        color: $white;
+        top: 15px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        font-size: 25px;
+        right: 0;
+    }
+    span {
+        position: relative;
+        left: 12px;
+        top: 30px;
+        color: $top-bar-color;
+    }
+    i {
+        color: $top-bar-color;
+        float: right;
+        position: relative;
+        font-size: 14px;
+        cursor: pointer;
+        top: 13px;
+        right: 25px;
+        font-weight: normal;
+    }
+}
+#skin-select {
+    h3, h4 {
+        font-family: $font-title;
+    }
+}
+.fixed-nest-sidebar div {
+    padding: 15px 0 0 0;
+    margin: -15px 0 0 0;
+}
+#menu-showhide {} #skin-select {
+    position: absolute;
+    top: 10px;
+    width: 50px;
+    right: 0;
+    z-index: 1000;
+    background: $sidebar-bg-color;
+    transition: all 0.1s ease;
+    #toggle {
+        background: $logo-bg-color;
+        color: rgba(255, 255, 255, 1);
+        cursor: pointer;
+        display: block;
+        height: 30px;
+        line-height: 30px;
+        position: absolute;
+        left: -25px;
+        text-align: center;
+        top: 14px;
+        width: 25px;
+        font-size: 13px;
+        z-index: 999;
+        font-style: normal;
+        text-decoration: none;
+        font-weight: normal;
+        border-radius: 4px 0 0 4px;
+        &:hover {
+            background: $logo-bg-color;
+        }
+        &.active {
+            &:hover {
+                background: $logo-bg-color;
+            }
+            background: $logo-bg-color;
+            color: rgba(255, 255, 255, 1);
+            cursor: pointer;
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            position: absolute;
+            left: -25px;
+            text-align: center;
+            top: 14px;
+            width: 25px;
+            font-size: 13px;
+            z-index: 1;
+            font-style: normal;
+            text-decoration: none;
+            font-weight: normal;
+            border-radius: 4px 0 0 4px;
+        }
+    }
+    li span {
+        left: 1px;
+        font-weight: 300 !important;
+        position: relative;
+        font-family: $font-title;
+        font-size: 12px;
+    }
+}
+.edumix-bar-title {
+    font-weight: 700 !important;
+    position: relative;
+    font-family: $font-title;
+    font-size: 12px;
+    text-transform: uppercase !important;
+    &:hover {
+        color: transparent !important;
+    }
+}
+.menu-hide span {
+    color: red;
+}
+#skin-select li {
+    ul li {
+        line-height: 20px;
+    }
+    b {
+        position: relative;
+        top: 8px;
+        font-size: 8px;
+        color: $dot-sidebar;
+        padding: 0 0 0 20px;
+    }
+    i {
+        font-size: 20px;
+        right: -5px;
+        position: relative;
+        width: 30px;
+        top: 7px !important;
+        display: inline-block;
+        height: 30px;
+        text-align: center;
+        padding: 8px 0 0;
+        border-radius: 100%;
+    }
+    li i {
+        display: inline-block;
+        font-size: 18px;
+        font-style: normal;
+        left: -5px;
+        line-height: 15px;
+        position: relative;
+        width: 23px;
+        top: 2px;
+    }
+    h4 i {
+        color: #EEEEEE;
+        font-size: 10px;
+    }
+}
+.skin-part {
+    padding: 0;
+    position: fixed;
+    top: 10px;
+    h3 {
+        text-shadow: none;
+        margin-bottom: 10px;
+        span {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 4px 10px 5px;
+            border-radius: 10px;
+            margin-left: 0px;
+            font-size: 11px;
+            color: #f2f2f2;
+        }
+        small {
+            margin-left: 6px;
+            color: #fff;
+            letter-spacing: 2px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 2px 6px;
+            border-radius: 15px;
+            position: relative;
+            top: -3px;
+        }
+    }
+    h4 {
+        font-size: 1em;
+        margin: 7px 0 !important;
+    }
+}
+.devider-horizontal {
+    width: 100%;
+    height: 2px;
+    display: inline-block;
+    padding: 15px 0 0 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+.devider-title h3 {
+    font-size: 14px;
+    color: #fff;
+    padding: 0 0 0 15px;
+}
+#menu-showhide {
+    margin: -10px 0 0;
+    position: relative;
+    z-index: 0;
+}
+#menu-select {
+    background: rgba(0, 0, 0, 0.3);
+    position: relative;
+    &:before {
+        content: "";
+        width: 3px;
+        /*   background: $logo-bg-color; */
+        
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+    }
+}
+.side-dash {
+    margin: 10px;
+    padding: 0 10px 0 0;
+    h3 {
+        color: #FFFFFF !important;
+        font-size: 12px;
+        margin-bottom: 10px !important;
+        padding: 0;
+        span {
+            background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);
+            border-radius: 24px;
+            margin-left: 5px;
+            padding: 5px 12px;
+            text-align: center;
+        }
+    }
+}
+.side-dashh-list, .side-bar-list {
+    margin-bottom: 25px;
+    margin-left: -30px;
+    width: 195px;
+}
+.side-dashh-list li, .side-bar-list li {
+    font-size: 12px !important;
+    line-height: 1.6em !important;
+}
+.side-dashh-list span {
+    float: right !important;
+    padding-right: 15px;
+    i {
+        left: 0 !important;
+        margin-left: 8px;
+    }
+}
+.side-bar-list li {
+    font-size: 12px !important;
+    line-height: 4em !important;
+}
+.linebar, .linebar2, .linebar3 {
+    float: right;
+    margin-right: 10px;
+}
+.scroll {
+    float: left;
+    width: 21%;
+    padding: 0;
+    margin-left: 4%;
+    margin-top: 40px;
+}
+.side-bar {} .topnav {
+    padding: 40px 28px 25px 0;
+}
+img.icon-menu {
+    margin-left: 10px;
+    margin-right: 3px;
+    margin-top: 3px;
+}
+ul.topnav {
+    margin: 0;
+    font-size: 14px;
+    line-height: 0.5em !important;
+    list-style: none !important;
+    padding: 0;
+    li a {
+        color: $sidebar-text-color !important;
+        font-weight: bold;
+        display: block;
+        font-size: 12px;
+        height: 50px;
+        line-height: 32px;
+        list-style: none outside none;
+        padding: 0 40px 0 10px;
+        text-align: right;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all 0.2s ease 0s;
+        &:hover {
+            background: red;
+        }
+    }
+}
+li.hide-min-toggle {
+    background: #545CA6;
+    text-align: left !important;
+    font-size: 13px !important;
+    padding: 13px 0 13px 28px !important;
+    font-weight: bold;
+}
+.bottom-list-menu {
+    margin: 0;
+    border-top: 1px solid #222;
+    padding: 20px 0 0 20px;
+    li {
+        list-style: none;
+        font-size: 12px;
+        padding: 10px 0 10px 15px;
+        color: #D5DAE6;
+        cursor: pointer;
+        word-spacing: 4px;
+        letter-spacing: 0;
+        span {
+            height: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            float: right !important;
+            width: 30px;
+            text-align: center;
+            font-size: 14px !important;
+            border-radius: 50%;
+            left: -18px !important;
+            line-height: 29px;
+            top: -7px;
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+    }
+}
+.menucon-main {
+    color: red !important;
+}
+.noft-blue {
+    background: #0d8add;
+    float: left !important;
+    padding: 0 5px!important;
+    font-size: 10px;
+    display: block!important;
+    height: 20px;
+    line-height: 20px;
+    margin: 7px 30px 0 !important;
+    border-radius: 4px;
+}
+.side-menu-noft {
+    /* height: 20px; */
+    
+    line-height: 14px;
+    padding: 2px 8px;
+    border-radius: 11px;
+    margin: 0;
+    position: absolute;
+    right: 100px;
+    top: 4px;
+    font-size: 9px;
+    /* width: 35px; */
+    
+    border: 2px solid $boder-notf-color;
+}
+/* 
+Show up sidemenu when minimize
+*/
+/*
+menu
+*/
+/* We remove the margin, padding, and list style of UL and LI components */
+
+#menuwrapper ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 260px;
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        width: 50px;
+        cursor: pointer;
+        &:hover, &.iehover {
+            position: relative;
+        }
+        a {
+            pointer-events: auto;
+        }
+        ul {
+            position: absolute;
+            display: none;
+            left: -1000px;
+        }
+        &:hover ul, &.iehover ul {
+            right: 49px;
+            top: 0px;
+            display: block;
+            width: 190px;
+            padding: 5px 0;
+            background: $sidebar-hover-color;
+        }
+        ul li {
+            /*background-color:#cae25a;*/
+        }
+        &:hover ul li:hover, &.iehover ul li.iehover {
+            /*background-color:#b1b536;*/
+        }
+        ul li a {
+            color: #454444;
+            display: inline-block;
+            width: 210px;
+            pointer-events: auto;
+            &:hover {
+                color: #000;
+            }
+        }
+        &:hover ul li ul, &.iehover ul li ul {
+            position: absolute;
+            display: none;
+        }
+        &:hover ul li:hover ul, &.iehover ul li.iehover ul {
+            display: block;
+            left: 150px;
+            top: 0;
+        }
+        &:hover ul li:hover ul li, &.iehover ul li.iehover ul li {
+            background: #86d3fa;
+        }
+        &:hover ul li:hover ul li:hover, &.iehover ul li.iehover ul li.iehover {
+            background: #358ebc;
+        }
+        &:hover ul li:hover ul li a, &.iehover ul li.iehover ul li a {
+            color: #ffffff;
+        }
+    }
+}
+/* Clear float */
+
+.clear {
+    clear: both;
+}
+ul.topnav {
+    li a:hover {
+        background: $sidebar-hover-color;
+        color: white !important;
+        text-shadow: none;
+        position: relative;
+        &:before {
+            content: "";
+            background: $right-bar-color;
+            width: 3px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+        }
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        display: none;
+        background: $sidebar-hover-color;
+        position: relative;
+        &:after {} li {
+            margin: 0;
+            padding: 0;
+            clear: both;
+            list-style: none outside none;
+            a {
+                color: $white;
+                font-size: 12px;
+                font-weight: 100 !important;
+                outline: 0 none;
+                transition: all 0.2s ease 0s;
+                text-align: right;
+                text-transform: capitalize;
+                padding: 6px 50px 7px 0;
+                i {} &:hover {
+                    background-color: transparent;
+                    color: $sidebar-text-color-hover !important;
+                    &:before {
+                        content: "";
+                        background: transparent;
+                        width: 3px;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        ul li a {
+            color: #444;
+            padding-left: 40px;
+            background: #c8c8c8;
+            transition: all 0.2s ease 0s;
+            &:hover {
+                background-color: #D3CEB8;
+                color: #0C7CBB;
+            }
+        }
+    }
+    h4 {
+        float: left !important;
+        margin-top: -2px;
+    }
+}

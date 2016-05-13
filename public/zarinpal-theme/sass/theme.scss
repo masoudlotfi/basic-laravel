@@ -1,0 +1,779 @@
+/*------------------------------------------------------------------
+[Core General Stylesheet]
+
+Project:    Edumix Foundation Dashboard Template
+Version:    1.2
+Last change:    11/03/2014 [fixed Float bug, vf]
+Author:matirasa
+-------------------------------------------------------------------*/
+@import 'fontawesome';
+
+@font-face {
+  font-family: 'IRANSans-web';
+  src: url('../fonts/rtl-fonts/IRANSans-Bold-web.eot');
+  src: url('../fonts/rtl-fonts/IRANSans-Bold-web.eot?#iefix') format('eot'), /* IE6–8 */
+  url('../fonts/rtl-fonts/IRANSans-Bold-web.woff2') format('woff2'), /* Chrome36+, Opera24+*/
+  url('../fonts/rtl-fonts/IRANSans-Bold-web.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'IRANSans-web';
+  src: url('../fonts/rtl-fonts/IRANSans-Medium-web.eot');
+  src: url('../fonts/rtl-fonts/IRANSans-Medium-web.eot?#iefix') format('eot'), /* IE6–8 */
+  url('../fonts/rtl-fonts/IRANSans-Medium-web.woff2') format('woff2'), /* Chrome36+, Opera24+*/
+  url('../fonts/rtl-fonts/IRANSans-Medium-web.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'IRANSans-web';
+  src: url('../fonts/rtl-fonts/IRANSans-UltraLight-web.eot');
+  src: url('../fonts/rtl-fonts/IRANSans-UltraLight-web.eot?#iefix') format('eot'), /* IE6–8 */
+  url('../fonts/rtl-fonts/IRANSans-UltraLight-web.woff2') format('woff2'), /* Chrome36+, Opera24+*/
+  url('../fonts/rtl-fonts/IRANSans-UltraLight-web.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'IRANSans-web';
+  src: url('../fonts/rtl-fonts/IRANSans-Light-web.eot');
+  src: url('../fonts/rtl-fonts/IRANSans-Light-web.eot?#iefix') format('eot'), /* IE6–8 */
+  url('../fonts/rtl-fonts/IRANSans-Light-web.woff2') format('woff2'), /* Chrome36+, Opera24+*/
+  url('../fonts/rtl-fonts/IRANSans-Light-web.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'IRANSans-web';
+  src: url('../fonts/rtl-fonts/IRANSans-web.eot');
+  src: url('../fonts/rtl-fonts/IRANSans-web.eot?#iefix') format('eot'), /* IE6–8 */
+  url('../fonts/rtl-fonts/IRANSans-web.woff2') format('woff2'), /* Chrome36+, Opera24+*/
+  url('../fonts/rtl-fonts/IRANSans-web.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  font-weight: normal;
+}
+
+@import 'variables'; //variables
+//-----------------------------------------------------------------------------//
+[class*="entypo-"]:before {
+  font-family: $entypo;
+}
+
+/* fontawesome */
+
+[class*="fontawesome-"]:before {
+  font-family: $fontawesome;
+}
+
+body {
+  font-family: $font-text !important;
+  background: $primary-color;
+  padding: 0;
+  font-size: 13px !important;
+  color: #888 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-title !important;
+  font-weight: normal !important;
+}
+
+p {
+  font-size: 14px !important;
+}
+
+blockquote {
+  margin: 0 0 1.25rem;
+  padding: 0.5625rem 1.25rem 0 1.1875rem;
+  border-left: 3px solid #8c92a3;
+  font-family: $font-title;
+  font-size: 16px;
+  font-style: italic;
+  color: $main-text-color;
+}
+
+ul, ol, dl {
+  font-size: 13px;
+}
+
+ul.pagination {
+  li {
+    float: right;
+    min-height: 30px;
+    min-width: 30px;
+    text-align: center;
+    padding: 4px;
+  }
+  li.active {
+    border: 1px solid #cacaca;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #dcdcdc));
+  }
+}
+
+/*
+Preloader
+ */
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2F323A;
+  /* change if the mask should have another color then white */
+
+  z-index: 9999;
+  /* makes sure it stays on top */
+}
+
+#status {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  /* centers the loading animation horizontally one the screen */
+
+  top: 50%;
+  /* centers the loading animation vertically one the screen */
+
+  background-image: url(../img/puff.svg);
+  /* path to your loading animation */
+
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: -100px 0 0 -100px;
+  /* is width and height divided by two */
+}
+
+.slide-out-div {
+  padding: 20px 5px;
+  width: 60px;
+  background: #fff;
+  position: relative;
+  z-index: 9999;
+}
+
+.handle {
+  background: #0D0C0E;
+  color: #fff;
+  width: 40px;
+  height: 50px;
+  text-align: center;
+  display: block;
+  left: -36px !important;
+}
+
+/*
+Value Master
+ */
+.fixed-nest {
+  position: fixed !important;
+}
+
+.no-pad {
+  padding: $no-pad;
+}
+
+.pad {
+  padding: $pad;
+}
+
+.pad-twenty {
+  padding: $pad-twenty;
+}
+
+.pad-forty {
+  padding: $pad-forty;
+}
+
+.margin {
+  margin: $margin;
+}
+
+.margin-center {
+  margin: 10px 0;
+}
+
+.margin-left {
+  margin: 0 40px 0 0;
+}
+
+.padding-content {
+  padding: 0 15%;
+}
+
+.height-tiny {
+  height: 8px !important;
+}
+
+.radius {
+  border-radius: 3px !important;
+}
+
+.inline {
+  display: inline;
+  width: auto;
+}
+
+.text-right {
+  text-align: $text-right;
+}
+
+.text-left {
+  text-align: $text-left;
+}
+
+.text-tiny {
+  font-size: 80%;
+  margin-bottom: 0.6rem;
+}
+
+/*
+Master Background Color
+ */
+
+.bg-light-green, .bg-dark-blue, .bg-red, .bg-yellow, .bg-aqua, .bg-blue, .bg-light-blue, .bg-green, .bg-navy, .bg-teal, .bg-olive, .bg-lime, .bg-orange, .bg-fuchsia, .bg-purple, .bg-maroon, .bg-black {
+  color: #f9f9f9 !important;
+}
+
+.bg-white {
+  background: $white !important;
+}
+
+.bg-gray {
+  background: $gray !important;
+}
+
+.bg-gray-blue {
+  background: $gray-blue !important;
+}
+
+.bg-black {
+  background: $black !important;
+}
+
+.bg-black-solid {
+  background: $black-solid !important;
+}
+
+.bg-red {
+  background: $red !important;
+  .box-title * {
+    color: $white !important
+  }
+}
+
+.bg-yellow {
+  background: $yellow !important;
+}
+
+.bg-aqua {
+  background-color: $aqua !important;
+}
+
+.bg-blue {
+  background-color: $blue !important
+}
+
+.bg-light-blue {
+  background-color: $light-blue !important;
+}
+
+.bg-dark-blue {
+  background-color: $dark-blue !important;
+}
+
+.bg-green {
+  background-color: $green !important;
+}
+
+.bg-light-green {
+  background-color: $light-green !important;
+}
+
+.bg-navy {
+  background-color: $navy !important;
+}
+
+.bg-teal {
+  background-color: $teal !important;
+}
+
+.bg-olive {
+  background-color: $olive !important;
+}
+
+.bg-lime {
+  background-color: $lime !important;
+}
+
+.bg-orange {
+  background-color: $orange !important;
+}
+
+.bg-red-orange {
+  background-color: $red-orange !important;
+}
+
+.bg-fuchsia {
+  background-color: $fuchsia !important;
+}
+
+.bg-purple {
+  background-color: $purple !important;
+}
+
+.bg-maroon {
+  background-color: $maroon !important;
+}
+
+.bg-transparent {
+  background: $transparent !important;
+}
+
+.bg-opacity {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.bg-opacity-one {
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+
+.bg-opacity-white {
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+
+.bg-opacity-white-btn {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.bg-opacity-white-btn:hover {
+  background: rgba(255, 255, 255, 0.4) !important;
+  color: white !important;
+}
+
+.border-gray {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+/*
+Master Text Color
+ */
+
+.text-opacity {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.text-black {
+  color: $black !important;
+}
+
+.text-red {
+  color: $red !important;
+}
+
+.text-gray {
+  color: $gray !important;
+}
+
+.text-dark-gray {
+  color: #222 !important;
+}
+
+.text-gray-gray {
+  color: #C5C5C5 !important;
+}
+
+.text-amber {
+  color: #ffffff !important;
+}
+
+.text-yellow {
+  color: #f39c12 !important;
+}
+
+.text-aqua {
+  color: #0ABAEF !important;
+}
+
+.text-blue {
+  color: #5C9DF5 !important;
+}
+
+.text-dark-blue {
+  color: #0F5593 !important;
+}
+
+.text-light-blue {
+  color: #3c8dbc !important;
+}
+
+.text-green {
+  color: #92CD18 !important;
+}
+
+.text-navy {
+  color: #B7C1D3 !important;
+}
+
+.text-teal {
+  color: #39cccc !important;
+}
+
+.text-olive {
+  color: #3d9970 !important;
+}
+
+.text-lime {
+  color: #01ff70 !important;
+}
+
+.text-orange {
+  color: #FF884D !important;
+}
+
+.text-fuchsia {
+  color: #f012be !important;
+}
+
+.text-purple {
+  color: #932ab6 !important;
+}
+
+.text-maroon {
+  color: #85144b !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-white a {
+  color: #484848 !important;
+}
+
+.border-green {
+  border-color: #37A8AF !important;
+}
+
+.border-blue {
+  border-color: #3E739D !important;
+}
+
+.border-aqua {
+  border-color: #0090D9 !important;
+}
+
+.text-opacity {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.margin-bottom-kill {
+  margin-bottom: 0 !important;
+}
+
+/*
+Hide elements by display none only
+*/
+
+.hide {
+  display: none !important;
+}
+
+/* Remove borders */
+
+.no-border {
+  border: 0px !important;
+}
+
+/* Remove padding */
+
+.no-padding {
+  padding: 0px !important;
+}
+
+/* Remove margins */
+
+.no-margin {
+  margin: 0px !important;
+}
+
+/* Remove box shadow */
+
+.no-shadow {
+  box-shadow: none !important;
+}
+
+.border {
+  border-bottom: 1px !important;
+}
+
+.star {
+  color: red !important;
+}
+
+/* font style for title */
+
+.font-title {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.font-uppercase {
+  text-transform: uppercase !important;
+}
+
+.font-medium {
+  font-size: 14px !important;
+}
+
+// My Style 
+.sms-setting > label {
+  clear: both;
+}
+
+// Top Bar Menu Stylesheet 
+@import 'topbar';
+//Side Bar stylesheet
+@import 'sidebar';
+//Side Bar stylesheet
+@import 'content';
+
+.js .inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  width: 100%;
+  font-size: 0.7rem;
+  /* 20px */
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem;
+  /* 10px 20px */
+}
+
+.no-js .inputfile + label {
+  display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label * {
+  /* pointer-events: none; */
+  /* in case of FastClick lib use */
+}
+
+.inputfile + label svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-top: -0.25em;
+  /* 4px */
+  margin-right: 0.25em;
+  /* 4px */
+}
+
+/* style 6 */
+
+.inputfile-6 + label {
+  color: #5C9DF5;
+}
+
+.inputfile-6 + label {
+  border: 1px solid #5C9DF5;
+  background-color: #FFF;
+  padding: 0;
+}
+
+.inputfile-6:focus + label,
+.inputfile-6.has-focus + label,
+.inputfile-6 + label:hover {
+  border-color: #722040;
+}
+
+.inputfile-6 + label span,
+.inputfile-6 + label strong {
+  padding: 0.625rem 1.25rem;
+  /* 10px 20px */
+}
+
+.inputfile-6 + label span {
+  min-height: 2em;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.inputfile-6 + label strong {
+  //height: 100%;
+  color: #FFF;
+  background-color: #5C9DF5;
+  display: inline-block;
+}
+
+.inputfile-6:focus + label strong,
+.inputfile-6.has-focus + label strong,
+.inputfile-6 + label:hover strong {
+  background-color: #4389E7;
+}
+
+@media screen and (max-width: 50em) {
+  .inputfile-6 + label strong {
+    display: block;
+  }
+}
+
+@media print {
+  #skin-select {
+    display: none !important;
+    width: 0 !important;
+  }
+  .breadcrumbs, .top-bar-nest, #footer {
+    display: none !important;
+  }
+  .inner-wrap .wrap-fluid {
+    width: 100% !important;
+    margin-right: 0px !important;
+    min-height: auto;
+  }
+  .button {
+    display: none;
+  }
+
+}
+
+@import "style";
+@import "responsive_table";
+@import "mail";
+//hot fix responsive design
+.tab-bar-mobile {
+  min-width: 200px;
+}
+
+.text-size-10 {
+  font-size: 10px;
+}
+
+.text-size-11 {
+  font-size: 11px;
+}
+
+.text-size-12 {
+  font-size: 12px;
+}
+
+.text-size-13 {
+  font-size: 13px;
+}
+
+.text-size-14 {
+  font-size: 14px;
+}
+
+.add-favorite-cards {
+  top: 30px;
+  right: 10px;
+}
+
+@media screen and (max-width: 440px) {
+  .add-favorite-cards {
+    top: 46px;
+    right: 10px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .add-favorite-cards {
+    top: 66px;
+    right: 10px;
+  }
+}
+.top-notification-background {
+  background-color: #ADADAD !important;
+}
+.top-notification-message {
+  color : #C4C4C4 !important ;
+}
+.top-dropdown-nest:after {
+  border-color: #ADADAD transparent !important;
+}
+
+
+.row {
+  display: block;
+  direction: rtl;
+}
+
+.row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.col-unq {
+  /* float: right; */
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+  width: 33.3%;
+}
+
+.banner-unq {
+  position: relative;
+  padding: 1rem;
+  background-color: #fefefe;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.11), 0 2px 3px rgba(0, 0, 0, 0.15);
+  font-family: iransans;
+}
+
+.banner-unq h3 {
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: .925rem;
+}
+
+.banner-unq h6 {
+  font-weight: 200;
+  font-size: .85rem;
+  margin: 0;
+}
+
+.banner-unq h6.green {
+  color: #64B523;
+}
+
+.banner-unq .handlebar {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.banner-unq .handlebar .positive {
+  color: #64B523;
+}
+
+.banner-unq .handlebar .negative {
+  color: #D9211C;
+}
+
+.step {
+  display: block;
+}

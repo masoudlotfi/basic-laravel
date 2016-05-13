@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Requests\Auth\PostRegisterRequest;
 use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Laracasts\Flash\Flash;
+use Symfony\Component\VarDumper\Dumper\DataDumperInterface;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -40,6 +46,41 @@ class AuthController extends Controller
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
+    public function showRegistrationForm()
+    {
+        Flash::message('خوش آمدید.');
+        return view('auth.register');
+    }
+
+    /**
+     * Handle a registration getRequest for the application.
+     * login removed from original action and email verification
+     *
+     * @param PostRegisterRequest $request
+     * @param bool $isJson
+     * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Foundation\Validation\ValidationException
+     */
+    public function postRegister(PostRegisterRequest $request)
+    {
+        $input = $request->all();
+
+        $input['email'] = strtolower($input['email']);
+        $user = $this->create($input);
+
+        Flash::info('باتشکر از ثبت‌نام شما، لطفاً برای ورود به سیستم اقدام نمایید.');
+
+        return Redirect::action('Auth\AuthController@getLogin');
+    }
+
+    public function getLogout()
+    {
+        Auth::guard($this->getGuard())->logout();
+        session()->flush();
+        return redirect()->back();
+    }
+
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -63,10 +104,16 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $user = [
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
+            'address' => $data['address'],
+            'mobile' => $data['mobile'],
+            'postal_code' => $data['postal_code'],
             'password' => bcrypt($data['password']),
-        ]);
+        ];
+
+        return User::create($user);
     }
 }
