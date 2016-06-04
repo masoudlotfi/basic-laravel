@@ -46,56 +46,56 @@ class AuthController extends Controller
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
-    public function showRegistrationForm()
-    {
-        Flash::message('خوش آمدید.');
-        return view('auth.register');
-    }
-
-    /**
-     * Handle a registration getRequest for the application.
-     * login removed from original action and email verification
-     *
-     * @param PostRegisterRequest $request
-     * @param bool $isJson
-     * @return \Illuminate\Http\Response
-     * @throws \Illuminate\Foundation\Validation\ValidationException
-     */
-    public function postRegister(PostRegisterRequest $request)
-    {
-        $input = $request->all();
-
-        $input['email'] = strtolower($input['email']);
-        $user = $this->create($input);
-
-        Flash::info('باتشکر از ثبت‌نام شما، لطفاً برای ورود به سیستم اقدام نمایید.');
-
-        return Redirect::action('Auth\AuthController@getLogin');
-    }
-
-    public function getLogout()
-    {
-        Auth::guard($this->getGuard())->logout();
-        session()->flush();
-        return redirect()->back();
-    }
-
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
-        ]);
-    }
-
+//    public function showRegistrationForm()
+//    {
+//        Flash::message('خوش آمدید.');
+//        return view('auth.register');
+//    }
+//
+//    /**
+//     * Handle a registration getRequest for the application.
+//     * login removed from original action and email verification
+//     *
+//     * @param PostRegisterRequest $request
+//     * @param bool $isJson
+//     * @return \Illuminate\Http\Response
+//     * @throws \Illuminate\Foundation\Validation\ValidationException
+//     */
+//    public function postRegister(PostRegisterRequest $request)
+//    {
+//        $input = $request->all();
+//
+//        $input['email'] = strtolower($input['email']);
+//        $user = $this->create($input);
+//
+//        Flash::info('باتشکر از ثبت‌نام شما، لطفاً برای ورود به سیستم اقدام نمایید.');
+//
+//        return Redirect::action('Auth\AuthController@getLogin');
+//    }
+//
+//    public function getLogout()
+//    {
+//        Auth::guard($this->getGuard())->logout();
+//        session()->flush();
+//        return redirect()->back();
+//    }
+//
+//
+//    /**
+//     * Get a validator for an incoming registration request.
+//     *
+//     * @param  array  $data
+//     * @return \Illuminate\Contracts\Validation\Validator
+//     */
+//    protected function validator(array $data)
+//    {
+//        return Validator::make($data, [
+//            'name' => 'required|max:255',
+//            'email' => 'required|email|max:255|unique:users',
+//            'password' => 'required|min:6|confirmed',
+//        ]);
+//    }
+//
     /**
      * Create a new user instance after a valid registration.
      *

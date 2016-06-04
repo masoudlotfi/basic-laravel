@@ -14,44 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['as' => 'auth.', 'namespace' => 'Auth', 'prefix' => 'auth', 'middleware' => 'auth',
-], function () {
-    Route::get('logout', [
-        'as' => 'getLogout',
-        'uses' => 'AuthController@getLogout',
-    ]);
-});
+Route::auth();
 
-Route::group([
-    'as' => 'auth.',
-    'middleware' => [
-//        'guest',
-    ],
-    'namespace' => 'Auth',
-    'prefix' => 'auth',
-], function () {
-
-    Route::get('login', [
-        'as' => 'getLogin',
-        'uses' => 'AuthController@getLogin',
-    ]);
-
-    Route::post('login', [
-        'as' => 'postLogin',
-        'middleware' => 'throttle:30',
-        'uses' => 'AuthController@postLogin',
-    ]);
-
-    // Registration routes...
-    Route::get('register', [
-        'as' => 'getRegister',
-        'uses' => 'AuthController@getRegister',
-    ]);
-    Route::post('register', [
-        'as' => 'postRegister',
-        'uses' => 'AuthController@postRegister',
-    ]);
-});
 Route::group(['as' => 'home.'], function () {
     Route::group([
 //        'middleware' => 'guest',
@@ -66,3 +30,10 @@ Route::group(['as' => 'home.'], function () {
         Route::post('/close/{id}', ['as' => 'postClose', 'uses' => 'TicketController@postGuestClose']);
     });
 });
+
+
+Route::get('/home', 'HomeController@index');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
